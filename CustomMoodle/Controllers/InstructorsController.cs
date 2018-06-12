@@ -15,16 +15,17 @@ namespace CustomMoodle.Controllers
     {
         private readonly InstructorService _instructorService;
         private readonly UserManager<ApplicationUser> _userManager;
+
         public InstructorsController(InstructorService instructorService,
             UserManager<ApplicationUser> userManager)
         {
             _instructorService = instructorService;
             _userManager = userManager;
         }
+
         public async Task<IActionResult> Index(int? id, int? courseId)
         {
-            var viewModel = new InstructorViewModel();
-            viewModel.Instructors = await _instructorService.GetAllInstructors();
+            var viewModel = new InstructorViewModel { Instructors = await _instructorService.GetAllInstructors() };
             if (id != null)
             {
                 ViewData["InstructorId"] = id.Value;
@@ -38,8 +39,10 @@ namespace CustomMoodle.Controllers
                 var selectedCourse = viewModel.Courses.Single(x => x.Id == courseId);
                 viewModel.Enrollments = selectedCourse.Enrollments;
             }
+
             return View(viewModel);
         }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,7 +50,7 @@ namespace CustomMoodle.Controllers
                 return NotFound();
             }
 
-            var instructor = await _instructorService.BuildInstructorModel((int)id);
+            var instructor = await _instructorService.BuildInstructorModel((int) id);
             if (instructor == null)
             {
                 return NotFound();

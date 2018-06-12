@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -67,8 +68,8 @@ namespace CustomMoodle
             });
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("StudentOnly", policy => policy.RequireClaim("Student"));
-                options.AddPolicy("TeacherOnly", policy => policy.RequireClaim("Teacher"));
+                options.AddPolicy("StudentOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Student"));
+                options.AddPolicy("TeacherOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Teacher"));
             });
             services.AddTransient<StudentRepository>();
             services.AddTransient<InstructorRepository>();

@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Domain.Entities.Course>
+@using Domain.Model
 @{
     ViewData["Title"] = "Courses";
+    var isStudent = User.Claims.Any(u => u.Value == ClaimTypes.Student.ToString());
 }
 
 <h2>Courses</h2>
@@ -21,6 +23,7 @@
     </tr>
     </thead>
     <tbody>
+     
     @foreach (var course in Model)
     {
         <tr>
@@ -35,6 +38,10 @@
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@course.Id">Details</a> |
+                @if (isStudent)
+                {
+                    <a asp-action="Enroll" asp-route-id="@course.Id">Enroll</a>
+                }
             </td>
         </tr>
     }
