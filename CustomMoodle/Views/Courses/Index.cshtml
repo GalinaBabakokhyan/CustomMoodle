@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Domain.Entities.Course>
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>Courses</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Credits
+        </th>
+        <th>
+            Department
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var course in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.Department.Name)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@course.Id">Details</a> |
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

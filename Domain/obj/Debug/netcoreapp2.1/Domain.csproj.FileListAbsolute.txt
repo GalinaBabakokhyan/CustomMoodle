@@ -1,0 +1,11 @@
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\bin\Debug\netcoreapp2.1\Domain.deps.json
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\bin\Debug\netcoreapp2.1\Domain.runtimeconfig.json
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\bin\Debug\netcoreapp2.1\Domain.runtimeconfig.dev.json
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\bin\Debug\netcoreapp2.1\Domain.dll
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\bin\Debug\netcoreapp2.1\Domain.pdb
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\obj\Debug\netcoreapp2.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfoInputs.cache
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\obj\Debug\netcoreapp2.1\Domain.dll
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
+C:\Users\haykm\Documents\Visual Studio 2017\Projects\CustomMoodle\Domain\obj\Debug\netcoreapp2.1\Domain.csprojAssemblyReference.cache

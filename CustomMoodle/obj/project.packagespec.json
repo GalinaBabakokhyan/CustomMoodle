@@ -1,0 +1,58 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\haykm\\Documents\\Visual Studio 2017\\Projects\\CustomMoodle\\CustomMoodle\\CustomMoodle.csproj",
+    "projectName": "CustomMoodle",
+    "projectPath": "C:\\Users\\haykm\\Documents\\Visual Studio 2017\\Projects\\CustomMoodle\\CustomMoodle\\CustomMoodle.csproj",
+    "outputPath": "C:\\Users\\haykm\\Documents\\Visual Studio 2017\\Projects\\CustomMoodle\\CustomMoodle\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.1"
+    ],
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {
+          "C:\\Users\\haykm\\Documents\\Visual Studio 2017\\Projects\\CustomMoodle\\Domain\\Domain.csproj": {
+            "projectPath": "C:\\Users\\haykm\\Documents\\Visual Studio 2017\\Projects\\CustomMoodle\\Domain\\Domain.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Microsoft.AspNetCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        },
+        "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
