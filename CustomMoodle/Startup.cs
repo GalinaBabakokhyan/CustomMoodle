@@ -17,6 +17,7 @@ using Domain.Repositories;
 using Domain.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -79,6 +80,15 @@ namespace CustomMoodle
             services.AddTransient<InstructorService>();
             services.AddTransient<DepartmentService>();
             services.AddTransient<CourseService>();
+            services.AddTransient<AssignmentService>();
+            services.AddTransient<AssignmentRepository>();
+            services.AddSingleton<ITempDataProvider, SessionStateTempDataProvider>();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".CustomMoodle";
+                options.IdleTimeout = TimeSpan.FromSeconds(50);
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -101,7 +111,7 @@ namespace CustomMoodle
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

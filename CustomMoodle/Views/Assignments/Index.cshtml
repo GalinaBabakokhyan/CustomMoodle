@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Domain.Entities.Course>
+@using Domain.Model
+@{
+    ViewData["Title"] = "Courses";
+    var isStudent = User.Claims.Any(u => u.Value == ClaimTypes.Student.ToString());
+}
+<h2>Assignment</h2>
+@if (!isStudent)
+{
+    <p>
+        <a asp-action="Create">Create</a>
+    </p>
+}

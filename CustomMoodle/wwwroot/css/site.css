@@ -17,7 +17,9 @@ body {
     font-size: 20px;
     line-height: 1.4;
 }
-
+.slider.slider-horizontal{
+    width:1200px !important;
+}
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;

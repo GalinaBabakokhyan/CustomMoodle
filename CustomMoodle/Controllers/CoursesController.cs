@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CustomMoodle.Extensions;
+using CustomMoodle.Models;
 using Domain.Entities;
 using Domain.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -25,6 +27,14 @@ namespace CustomMoodle.Controllers
 
         public async Task<IActionResult> Index()
         {
+            if (TempData["Message"] == null)
+            {
+                return View(await _courseService.GetAllCourses());
+            }
+
+            ViewBag.Message = TempData.Get<AlertViewModel>("Message");
+            TempData.Remove("Message");
+
             return View(await _courseService.GetAllCourses());
         }
 
@@ -56,16 +66,18 @@ namespace CustomMoodle.Controllers
                 var studentId = int.Parse(_userManager.GetUserId(User));
                 if (_courseService.TryToEnroll(studentId, (int) id, out var errorMessage))
                 {
-                    ViewData["SuccessMessage"] = "You have been successfully enrolled!";
+                    TempData.Put("Message",
+                        new AlertViewModel(AlertType.Success, "Success", "You have been successfully enrolled!"));
                     return RedirectToAction("Index");
                 }
-
-                ViewData["ErrorMessage"] = "You are already enroled to this class!";
+                TempData.Put("Message",
+                    new AlertViewModel(AlertType.Danger, "Error", "You are already enroled to this class!"));
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                ViewData["ErrorMessage"] = ex.Message;
+                TempData.Put("Message",
+                    new AlertViewModel(AlertType.Danger, "Error", "Something went wrong!"));
                 return RedirectToAction("Index");
             }
         }
