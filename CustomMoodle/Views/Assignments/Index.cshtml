@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Entities.Course>
+﻿@model IEnumerable<AssignmentGridModel>
 @using Domain.Model
 @{
     ViewData["Title"] = "Courses";
@@ -11,3 +11,52 @@
         <a asp-action="Create">Create</a>
     </p>
 }
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Instructor
+        </th>
+        <th>
+            Course
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            End Date
+        </th>
+        <th>
+            Description
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+     
+    @foreach (var assignment in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => assignment.InstructorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => assignment.CourseTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => assignment.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => assignment.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => assignment.Description)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@assignment.AssignmentId">Details</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

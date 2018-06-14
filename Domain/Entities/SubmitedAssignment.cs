@@ -12,7 +12,7 @@ namespace Domain.Entities
         public DateTime SumbitionDate { get; set; }
         [StringLength(300)]
         public string Description { get; set; }
-        public string ContentInBase64 { get; set; }
+        public string FilePath { get; set; }
         public int StudentId { get; set; }
         [ForeignKey("StudentId")]
         public ApplicationUser Student { get; set; }
